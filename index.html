@@ -1,12 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
+<!--[if IE 8]> <html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en" >
+<!--<![endif]-->
+
 	<head>
-		<meta charset="UTF-8" />
-		<title>FooBar</title>
-		<meta name="description" content="" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta charset="utf-8" />
+	  	<meta name="viewport" content="width=device-width" />
+	  	<title>DevTack</title>
+	  	<link rel="stylesheet" href="css/foundation.min.css" />
+		<link rel="stylesheet" href="css/fonts.css" />
+		<link rel="stylesheet" href="css/styles.css" />
+	  	<script src="js/vendor/custom.modernizr.js"></script>
+
+		<!--[if !IE 7]>
+			<style type="text/css">
+				#wrap {display:table;height:100%}
+			</style>
+		<![endif]-->
 	</head>
-<body>
-  <h3>Pages <a href="/foo">test</a></h3>
-</body>
+
+	<body>
+			<div class="row">
+				<div class="small-8 columns title">
+					<h1><a href="/">Gareth Roberts</a></h1>
+				</div>
+			</div>
+
+			<!--<div class="row">
+				<div class="small-8 columns">
+					<p>Unmanned aircraft researcher</p>
+				</div>
+		  </div>-->
+      <div class="row">
+        <div class="small-12 columns">
+					<img src="img/main.jpg" alt="Main placeholder image" class="placeholder" />
+				</div>
+      </div>
+
+			<div class="row">
+				<ul class="small-block-grid-1 large-block-grid-3 menu">
+					<li><a href="#" data-reveal-id="professional"><img src="img/skills.svg" />Professional</a></li>
+					<li><a href="" id="contact"><img src="img/contact.svg" />Email</a></li>
+					<li><a href="#" data-reveal-id="code"><img src="img/wrench.svg" />Code</a></li>
+				</ul>
+			</div>
+
+      <div id="professional" class="reveal-modal">
+        <h2>Professional</h2>
+        <p class="lead">For professional enquiries, I generally prefer email</p>
+        <a href="http://www.linkedin.com/in/garethparoberts"><img src="img/li.png" /></a>
+        <a class="close-reveal-modal">X</a>
+      </div>
+
+      <div id="code" class="reveal-modal">
+		<h2>Code</h2>
+        <p>Various open source side projects. Some highlights:
+			<ul>
+				<li><a href="https://github.com/blutack/checkov">Checkov</a>, a little preflight check application + launcher</li>
+				<li><a href="https://github.com/blutack/checkov">Barky</a>, website barcode navigation library</li>
+				<li><a href="https://github.com/blutack/mendeley-opera">Mendley extension</a> for the Opera browser</li>
+				<li><a href="https://bitbucket.org/blutack/cumulus">Cumulus</a>, an offline raining.fm clone</li>
+			</ul>
+		</p>
+        <p><a href="https://bitbucket.org/blutack"><img src="img/bb.png" /></a></p>
+		<p><a href="https://github.com/blutack"><img src="img/gh.png" width="100px"/></a></p>
+        <a class="close-reveal-modal">X</a>
+      </div>
+
+	  	<script src="js/vendor/zepto.js"></script>
+		<script src="js/foundation.min.js"></script>
+
+		<script>
+			$(document).foundation();
+			$("#contact").attr('href', "mailto:gareth@" + window.location.host)
+		</script>
+	</body>
 </html>
+
