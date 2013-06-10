@@ -27,6 +27,7 @@
 				</div>
 			</div>
 
+      <script src="js/vendor/zepto.js"></script>
 			<!--<div class="row">
 				<div class="small-8 columns">
 					<p>Unmanned aircraft researcher</p>
@@ -34,22 +35,48 @@
 		  </div>-->
       <div class="row">
         <div class="small-12 columns">
-			<img src="img/main.jpg" alt="Main placeholder image" width="970px" height="441px" class="placeholder" />
-		</div>
+          <img id="main-image" src="" width="800px" />
+          <script>
+            // Not fair to expose visitors to Flickr's tracking beacon. Also saves downloading the main image twice.
+            // Could do everything in this function, but probably better let the browsers do the HTML parsing
+            var write = document.write;
+            document.write = function(s){
+              s = s.replace(/alt=/g, "");
+              s = s.replace(/src=/g, "alt=");
+              document.write = write;
+              document.write(s);
+            }
+          </script>
+					<script src="http://www.flickr.com/badge_code_v2.gne?count=1&display=random&size=t&layout=x&source=user&user=97259235@N04"></script>
+          <script>
+            var img = $(".flickr_badge_image > a > img").attr("alt");
+            img = img.replace("t.jpg", "c.jpg");
+            $(".flickr_badge_image").remove(); // Just for cleanliness
+            $(".flickr_badge_beacon").remove();
+            $("#main-image").attr("src", img);
+            $("#main-image").attr("alt", "Random photo from my public flickr");
+          </script>
+		    </div>
       </div>
 
 			<div class="row">
 				<ul class="small-block-grid-1 large-block-grid-3 menu">
 					<li><a href="#" data-reveal-id="professional"><img src="img/skills.svg" />Professional</a></li>
-					<li><a href="" id="contact"><img src="img/contact.svg" />Email</a></li>
+					<li><a href="" data-reveal-id="contact"><img src="img/contact.svg" />Email</a></li>
 					<li><a href="#" data-reveal-id="code"><img src="img/wrench.svg" />Code</a></li>
 				</ul>
 			</div>
 
       <div id="professional" class="reveal-modal">
         <h2>Professional</h2>
-        <p class="lead">For professional enquiries, I generally prefer email</p>
+        <p class="lead">For professional enquiries, I generally prefer email.</p>
         <a href="http://www.linkedin.com/in/garethparoberts"><img src="img/li.png" /></a>
+        <a class="close-reveal-modal">X</a>
+      </div>
+
+      <div id="contact" class="reveal-modal center">
+        <h3><a href="" id="email-address"></a></h3>
+        <p><a href="gareth-roberts.key">PGP Key</a></p>
         <a class="close-reveal-modal">X</a>
       </div>
 
@@ -68,12 +95,11 @@
         <a class="close-reveal-modal">X</a>
       </div>
 
-	  	<script src="js/vendor/zepto.js"></script>
 		<script src="js/foundation.min.js"></script>
 
 		<script>
 			$(document).foundation();
-			$("#contact").attr('href', "mailto:gareth@" + window.location.host)
+      $("#email-address").attr('href', "mailto:gareth@" + window.location.host).html("gareth@" + window.location.host);
 		</script>
 	</body>
 </html>

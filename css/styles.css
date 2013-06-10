@@ -10,7 +10,7 @@ body {
 	font-family: 'transportmedium', Arial, sans-serif;
 }
 
-.title a { color: inherit; }
+a { color: inherit; }
 
 .menu {
     margin-top: 60px;
@@ -25,5 +25,16 @@ ul.menu img {
 	height: 60px;
     margin-left: auto;
     margin-right: auto
+}
+
+#main-image {
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.center {
+    text-align: center;
 }
 
