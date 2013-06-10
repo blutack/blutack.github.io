@@ -35,7 +35,11 @@
 		  </div>-->
       <div class="row">
         <div class="small-12 columns">
-          <img id="main-image" src="" width="800px" />
+          <span class="reloader">
+            <a href=""><img src="img/refresh.png" width="32" height="32" alt="Zoom" class="overlay" /></a>
+            <img id="main-image" src="" />
+
+          </span>
           <script>
             // Not fair to expose visitors to Flickr's tracking beacon. Also saves downloading the main image twice.
             // Could do everything in this function, but probably better let the browsers do the HTML parsing
